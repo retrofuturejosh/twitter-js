@@ -1,0 +1,21 @@
+{
+  "name": "twitter-js",
+  "version": "1.0.0",
+  "description": "a cool tweet app",
+  "main": "(twitter-js)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "/Users/joshsohn/Documents/fullStack/immersive/twitter-js/.git/"
+  },
+  "keywords": [
+    "twitter.js"
+  ],
+  "author": "Josh and Erika",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
