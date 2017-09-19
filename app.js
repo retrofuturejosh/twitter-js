@@ -4,6 +4,19 @@ const http = require('http');
 const PORT = 3000;
 const server = http.createServer();
 
+var obj = {
+    title: 'example',
+    people: [
+        {name: 'Josh'},
+        {name: 'Erika'}
+    ]
+}
+
+nunjucks.configure('views', {noCache: true});
+nunjucks.render('index.html', obj, function (err, output) {
+    console.log(output);
+});
+
 server.on('request', app);
 server.listen(PORT, function(){
     console.log('server listening')
