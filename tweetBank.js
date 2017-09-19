@@ -35,4 +35,6 @@ const randArrayEl = function(arr) {
     module.exports.add( getFakeName(), getFakeTweet() );
   }
 
+  module.exports.tweetBankList = module.exports.list();
+
   module.exports.add('Josh Sohn', "this is my tweet");
