@@ -6,7 +6,7 @@ module.exports.add = function (name, content){
     data.push({name: name, content: content})
 };
 module.exports.list = function (){
-    return _.clodeDeep(data);
+    return _.cloneDeep(data);
 };
 module.exports.find = function (properties){
     return _.cloneDeep(_.filter(data, properties));
