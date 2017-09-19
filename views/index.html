@@ -11,8 +11,25 @@
       <b>Your Name</b><br>
       100 followers
     </div>
+    <div>
+      {% if showForm %}
+      <form action="/tweets" method="POST">
+        <label for="name_field">Name:</label>
+        <input name="name" type="text" id="name_field" />
+      
+        <label for="text_field">Text:</label>
+        <input name="text" type="text" id="text_field" style="width: 350px;" />
+      
+        <input type="submit" value="Submit" />
+      </form>
+      {% endif %}
+    </div>
     <div class="col-md-9">
-    
+      {% if noTweet %}
+      <form action="/tweets" method="POST">
+        <h3>Seems like that's not a tweet, sorry!</h3>
+      </form>
+      {% endif %}
       <!-- display tweets here -->
       {% for tweet in tweets %}
         <h4><a href="/users/{{tweet.userName}}">{{tweet.name}}</a></h4>
@@ -23,3 +40,4 @@
   </div>
     
 {% endblock %}
+
