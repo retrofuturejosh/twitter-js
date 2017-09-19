@@ -1,12 +1,13 @@
 const _ = require('lodash');
-
 const data = [];
+var tweetCount = 0;
 
 module.exports.add = function (name, content){
   var userName = name.split(' ').map(function(word){
     return word.toLowerCase();
   }).join('_');
-  data.push({name: name, content: content, userName: userName});
+  tweetCount ++;
+  data.push({name: name, content: content, userName: userName, tweetID: tweetCount});
 };
 module.exports.list = function (){
     return _.cloneDeep(data);
@@ -33,8 +34,5 @@ const randArrayEl = function(arr) {
   for (let i = 0; i < 10; i++) {
     module.exports.add( getFakeName(), getFakeTweet() );
   }
-
-  module.exports.add('Josh Sohn', 'FullStack is awesome!')
-  module.exports.add('Josh Sohn', 'FullStack is NOT awesome! NOT!')
 
   console.log(data);
