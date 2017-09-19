@@ -1,18 +1,28 @@
 const express = require('express');
 const router = express.Router();
 // could use one line instead: const router = require('express').Router();
+const bodyParser = require('body-parser');
 
 const tweetBank = require('../tweetBank');
 var tweets = tweetBank.list();
 var userNames = tweets.map(function(tweet){
   return tweet.userName
 })
-console.log(userNames);
+
+// var urlEncodedParser = bodyParser.urlencoded({extended: false});
+
+router.post('/', function(req, res, next) {
+  // res.send(req.body)
+  console.log(req.body)
+  next();
+})
 
 router.get('/', function (req, res, next) {
   res.render( 'index', { tweets: tweets, showForm: true} );
   next();
 });
+
+router.use('/users', require('./users'))
 
 router.get('/users/:name', function(req, res){
   if (userNames.includes(req.params.name)){

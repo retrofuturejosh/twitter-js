@@ -36,5 +36,3 @@ const randArrayEl = function(arr) {
   }
 
   module.exports.add('Josh Sohn', "this is my tweet");
-
-  console.log(data);

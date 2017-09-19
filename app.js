@@ -5,7 +5,7 @@ const PORT = 3000;
 const server = http.createServer();
 const nunjucks = require('nunjucks');
 const routes = require('./routes');         //the folder with the index.js file
-
+const bodyParser = require('body-parser');
 
 app.set('view engine', 'html'); // have res.render work with html files
 app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
@@ -15,6 +15,10 @@ server.on('request', app);
 server.listen(PORT, function(){
     console.log('server listening')
 })
+
+var urlEncodedParser = bodyParser.urlencoded({extended: false});
+app.use(urlEncodedParser);
+app.use(bodyParser.json());
 
 app.use(express.static('public'))  //staticly routing to our public folder which contains our CSS stylesheets
 
